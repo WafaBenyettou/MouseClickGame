@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="game.css">
+    <script src="https://cdn.jsdelivr.net/npm/p5@1.4.0/lib/p5.min.js"></script>
+    <title>Document</title>
+</head>
+<body>
+   
+    <div class="banner">
+        <div class="content">
+            <h1><span>MOUSE</span> ACCURACY GAME</h1>
+            <p>MOUSE ACCURACY AND AIM TRAINING GAME</p>
+            
+                <a href="code.html">
+
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+
+                    PLAY 
+                </a> 
+           
+        </div>
+        <div class="cursor">
+        
+        </div>
+    </div>
+
+  
+
+    <script type="text/javascript">
+    const cursor=document.querySelector(".cursor");
+    var timeout;
+
+    document.addEventListener("mousemove", (e)=>{
+        let x = e.pageX;
+        let y = e.pageY;
+
+        cursor.style.top = y + "px";
+        cursor.style.left = x + "px";
+        cursor.style.display = "block";
+
+        function mouseStopped(){
+            cursor.style.display = "none";
+        }
+        clearTimeout(timeout);
+        timeout = setTimeout(mouseStopped, 1000);
+    });
+
+    document.addEventListener("mouseout",()=>{
+     cursor.style.display = "none";
+    });
+    </script>
+</body>
+</html>

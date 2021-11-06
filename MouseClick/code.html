@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/p5@1.4.0/lib/p5.min.js"></script>
+   
+    <link rel="stylesheet" href="countdown.css">
+    <title>Document</title>
+</head>
+<body>
+</div>
+<div class="banner">
+    <div class="content">
+       
+        <p> <span id="countdowntimer"> 15</span></p> 
+ 
+    </div>
+
+    <div class="click" onclick="score();">
+        <p> <span id="count" > Score : 0 </span></p>
+    </div>
+
+
+    <div class="cursor"></div>
+    
+</div>
+
+
+<script type="text/javascript">
+    const cursor=document.querySelector(".cursor");
+    var timeout;
+
+    document.addEventListener("mousemove", (e)=>{
+        let x = e.pageX;
+        let y = e.pageY;
+
+        cursor.style.top = y + "px";
+        cursor.style.left = x + "px";
+        cursor.style.display = "block";
+
+        function mouseStopped(){
+            cursor.style.display = "none";
+        }
+        clearTimeout(timeout);
+        timeout = setTimeout(mouseStopped, 1000);
+    });
+
+    document.addEventListener("mouseout",()=>{
+     cursor.style.display = "none";
+    });
+    </script>
+  
+    <script src="countdown.js"></script>
+    <script src="code.js"></script>
+    
+</body>
+</html>
